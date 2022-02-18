@@ -14,6 +14,7 @@ public class YorkPirates extends Game {
 	public BitmapFont font;
 	public SpriteBatch batch;
 	public OrthographicCamera camera;
+	public TextureHandler textureHandler;
 	public Array<Array<Boolean>> edges;
 
 	// Animations
@@ -39,6 +40,9 @@ public class YorkPirates extends Game {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 16* SCREEN_TO_PIXEL_RATIO, 9* SCREEN_TO_PIXEL_RATIO);
 		batch = new SpriteBatch();
+		
+		// Create texture handler
+		textureHandler = new TextureHandler();
 
 		// Get font from skin
 		TextureAtlas atlas;
