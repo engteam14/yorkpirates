@@ -25,6 +25,12 @@ public class TextureHandler {
 		return tex;
 	}
 	
+	public void unloadTexture(String key) {
+		if(textures.containsKey(key)) {
+			textures.get(key).dispose();
+		}
+	}
+	
 	public Texture getTexture(String key) {
 		return textures.get(key);
 	}
@@ -32,10 +38,16 @@ public class TextureHandler {
 	public TextureAtlas loadTextureAtlas(String key, FileHandle file) {
 		TextureAtlas texA = new TextureAtlas(file);
 		if(textureAtlas.containsKey(key)) {
-			textures.get(key).dispose();
+			textureAtlas.get(key).dispose();
 		}
 		textureAtlas.put(key, texA);
 		return texA;
+	}
+	
+	public void unloadTextureAtlas(String key) {
+		if(textureAtlas.containsKey(key)) {
+			textureAtlas.get(key).dispose();
+		}
 	}
 	
 	public TextureAtlas getTextureAtlas(String key) {
